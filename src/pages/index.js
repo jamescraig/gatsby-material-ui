@@ -1,113 +1,196 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
-import Navigtaion from "../components/Navigation/NavigationBar";
-import {PathLine} from 'react-svg-pathline'
+import Hidden from '@material-ui/core/Hidden';
+import Navigator from '../components/Navigation/Drawer';
+import Header from '../components/Navigation/AppBar';
+import Timeline from '../components/Timeline/Timeline';
 
-const styles = theme => ({
-  paperChart: {
-    margin: '1.5em auto 5em auto',
-    padding: '1em',
-    maxWidth: '32em',
-    position: 'relative',
-    height: '1500px',
+let theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    h5: {
+      fontWeight: 500,
+      fontSize: 26,
+      letterSpacing: 0.5,
+    },
   },
-  svg: {
-    position: 'absolute',
-    left: '10px',
-    width: '90%',
-    height: '400px',
+  palette: {
+    primary: {
+      light: '#63ccff',
+      main: '#009be5',
+      dark: '#006db3',
+    },
+  },
+  shape: {
+    borderRadius: 8,
   },
 });
 
-function MainPage(props) {
-  const { classes } = props;
-  return (
-    <React.Fragment>
-      <CssBaseline />
-        <Paper className={classes.paperChart} rounded={true} elevation="10">
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 150 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:105, y: 100}, {x:175, y:160}, {x:170, y:190}, {x:120, y:230}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#ee4c52"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 322 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:145, y: 120}, {x:175, y:160}, {x:170, y:220}, {x:120, y:250}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#c42127"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 420 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:105, y: 100}, {x:175, y:160}, {x:170, y:190}, {x:120, y:230}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#261135"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 503 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:145, y: 120}, {x:175, y:160}, {x:170, y:220}, {x:120, y:250}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#4259a8"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 574 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:105, y: 100}, {x:175, y:160}, {x:170, y:190}, {x:120, y:230}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#4259a8"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 720 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:105, y: 100}, {x:175, y:160}, {x:170, y:190}, {x:120, y:230}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#2b3990"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-          <svg preserveAspectRatio="none" viewBox="0 0 200 300" style={{ top: 822 }} className={classes.svg} xmlns="http://www.w3.org/2000/svg" >
-            <PathLine 
-                points={[{x:0, y:0}, {x:145, y: 120}, {x:175, y:160}, {x:170, y:220}, {x:120, y:250}, {x:0, y:300}]} 
-                stroke="#ffffff"
-                strokeWidth="1"
-                fill="#27163f"
-                fillOpacity="0.75"
-                r={10}
-                />
-          </svg>
-        </Paper>
-      <Navigtaion />
-    </React.Fragment>
-  );
+theme = {
+  ...theme,
+  overrides: {
+    MuiDrawer: {
+      paper: {
+        backgroundColor: '#18202c',
+      },
+    },
+    MuiButton: {
+      label: {
+        textTransform: 'initial',
+      },
+      contained: {
+        boxShadow: 'none',
+        '&:active': {
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiTabs: {
+      root: {
+        marginLeft: theme.spacing.unit,
+      },
+      indicator: {
+        height: 3,
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3,
+        backgroundColor: theme.palette.common.white,
+      },
+    },
+    MuiTab: {
+      root: {
+        textTransform: 'initial',
+        margin: '0 16px',
+        minWidth: 0,
+        [theme.breakpoints.up('md')]: {
+          minWidth: 0,
+        },
+      },
+      labelContainer: {
+        padding: 0,
+        [theme.breakpoints.up('md')]: {
+          padding: 0,
+        },
+      },
+    },
+    MuiIconButton: {
+      root: {
+        padding: theme.spacing.unit,
+      },
+    },
+    MuiTooltip: {
+      tooltip: {
+        borderRadius: 4,
+      },
+    },
+    MuiDivider: {
+      root: {
+        backgroundColor: '#404854',
+      },
+    },
+    MuiListItemText: {
+      primary: {
+        fontWeight: theme.typography.fontWeightMedium,
+      },
+    },
+    MuiListItemIcon: {
+      root: {
+        color: 'inherit',
+        marginRight: 0,
+        '& svg': {
+          fontSize: 20,
+        },
+      },
+    },
+    MuiAvatar: {
+      root: {
+        width: 32,
+        height: 32,
+      },
+    },
+  },
+  props: {
+    MuiTab: {
+      disableRipple: true,
+    },
+  },
+  mixins: {
+    ...theme.mixins,
+    toolbar: {
+      minHeight: 48,
+    },
+  },
+};
+
+const drawerWidth = 256;
+
+const styles = {
+  root: {
+    display: 'flex',
+    minHeight: '100vh',
+  },
+  drawer: {
+    [theme.breakpoints.up('lg')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  mainContent: {
+    flex: 1,
+    padding: '48px 36px 0',
+    background: '#eaeff1',
+  },
+};
+
+class Tastyberry extends React.Component {
+  state = {
+    mobileOpen: false,
+  };
+
+  handleDrawerToggle = () => {
+    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <MuiThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <nav className={classes.drawer}>
+            <Hidden lgUp implementation="js">
+              <Navigator
+                PaperProps={{ style: { width: drawerWidth } }}
+                variant="temporary"
+                open={this.state.mobileOpen}
+                onClose={this.handleDrawerToggle}
+              />
+            </Hidden>
+            <Hidden mdDown implementation="css">
+              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+            </Hidden>
+          </nav>
+          <div className={classes.appContent}>
+            <main className={classes.mainContent}>
+              <Timeline />
+            </main>
+          </div>
+          <Header onDrawerToggle={this.handleDrawerToggle} />
+        </div>
+      </MuiThemeProvider>
+    );
+  }
 }
 
-MainPage.propTypes = {
+Tastyberry.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MainPage);
-
-
+export default withStyles(styles)(Tastyberry);

@@ -13,8 +13,7 @@
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-jss": "^8.1.0",
-    "react-svg-pathline": "^0.5.0"
+    "react-jss": "^8.1.0"
   },
   "scripts": {
     "develop": "gatsby develop",
