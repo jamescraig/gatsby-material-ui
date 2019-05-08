@@ -7,7 +7,7 @@ import Berrylines from './berry-lines.svg';
 // const primary = deepPurple[800];
 const styles = theme => ({
   paperChart: {
-    margin: '1.5em auto 5em auto',
+    margin: '0 auto',
     padding: '1em',
     maxWidth: '48em',
     position: 'relative',

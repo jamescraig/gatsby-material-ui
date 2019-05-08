@@ -143,10 +143,10 @@ const styles = {
   },
   mainContent: {
     flex: 1,
-    padding: '48px 36px 0',
+    padding: '1.5em 1.5em 56px 1.5em',
     background: '#eaeff1',
     [theme.breakpoints.up('sm')]: {
-      padding: '48px 48px 0',
+      padding: '48px 48px 56px 48px',
     },
   },
 };
