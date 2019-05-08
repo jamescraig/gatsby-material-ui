@@ -9,7 +9,7 @@ const styles = theme => ({
   paperChart: {
     margin: '1.5em auto 5em auto',
     padding: '1em',
-    maxWidth: '64em',
+    maxWidth: '48em',
     position: 'relative',
   },
   svg: {
