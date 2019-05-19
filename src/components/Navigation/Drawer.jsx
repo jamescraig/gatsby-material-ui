@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
@@ -16,22 +17,22 @@ import PublicIcon from '@material-ui/icons/Public';
 import PrivacyIcon from '@material-ui/icons/SettingsInputComponent';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 
-const categories = [
+const internalLinks = [
   {
     id: 'Main Menu',
     children: [
-      { id: 'Home', icon: <HomeIcon /> },
-      { id: 'About', icon: <PublicIcon /> },
-      { id: 'Privacy Policy', icon: <PrivacyIcon /> },
-      { id: 'Contact Us', icon: <ContactSupportIcon /> },
+      { id: 'Home', path: '/', icon: <HomeIcon /> },
+      { id: 'About', path: '/about', icon: <PublicIcon /> },
+      { id: 'Privacy Policy', path: '/privacy', icon: <PrivacyIcon /> },
+      { id: 'Contact Us', path: '/contact', icon: <ContactSupportIcon /> },
     ],
   },
   {
     id: 'Social Links',
     children: [
-      { id: 'Facebook', icon: <WhatshotIcon /> },
-      { id: 'Instagram', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Twitter', icon: <DnsRoundedIcon /> },
+      { id: 'Facebook', path: 'https://facebook.com/', icon: <WhatshotIcon /> },
+      { id: 'Instagram', path: 'https://instagram.com/', icon: <PermMediaOutlinedIcon /> },
+      { id: 'Twitter', path: 'https://twitter.com/', icon: <DnsRoundedIcon /> },
     ],
   },
 ];
@@ -90,7 +91,7 @@ function Navigator(props) {
         <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
           Tasty Berry
         </ListItem>
-        {categories.map(({ id, children }) => (
+        {internalLinks.map(({ id, children }) => (
           <React.Fragment key={id}>
             <ListItem className={classes.categoryHeader}>
               <ListItemText
@@ -101,9 +102,11 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
+            {children.map(({ id: childId, path, icon, active }) => (
               <ListItem
                 button
+                component={Link}
+                to={path}
                 dense
                 key={childId}
                 className={classNames(

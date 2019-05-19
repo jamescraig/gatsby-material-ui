@@ -181,7 +181,7 @@ class Tastyberry extends React.Component {
           </nav>
           <div className={classes.appContent}>
             <main className={classes.mainContent}>
-              <p>hello about</p>
+              <p>hello privacy</p>
             </main>
           </div>
           <Header onDrawerToggle={this.handleDrawerToggle} />
