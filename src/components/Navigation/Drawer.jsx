@@ -107,6 +107,7 @@ function Navigator(props) {
                 button
                 component={Link}
                 to={path}
+                activeStyle={{ color: "white" }}
                 dense
                 key={childId}
                 className={classNames(
