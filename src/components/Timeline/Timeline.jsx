@@ -62,7 +62,7 @@ const styles = theme => ({
   },
   blackcapraspberry: {
     position: 'absolute',
-    top: '46.5%',
+    top: '51.5%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -70,7 +70,7 @@ const styles = theme => ({
   },
   trailingblackberry: {
     position: 'absolute',
-    top: '52.5%',
+    top: '54%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -86,7 +86,7 @@ const styles = theme => ({
   },
   salal: {
     position: 'absolute',
-    top: '59.5%',
+    top: '59%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -94,7 +94,7 @@ const styles = theme => ({
   },
   oregongrape: {
     position: 'absolute',
-    top: '62.5%',
+    top: '61.5%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -102,7 +102,7 @@ const styles = theme => ({
   },
   ovalleafblueberry: {
     position: 'absolute',
-    top: '66.5%',
+    top: '64%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -110,7 +110,7 @@ const styles = theme => ({
   },
   blackhuckleberry: {
     position: 'absolute',
-    top: '69.5%',
+    top: '66.5%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -118,7 +118,7 @@ const styles = theme => ({
   },
   bogblueberry: {
     position: 'absolute',
-    top: '72.5%',
+    top: '70%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',
@@ -126,7 +126,7 @@ const styles = theme => ({
   },
   evergreenhuckleberry: {
     position: 'absolute',
-    top: '75.5%',
+    top: '75.7%',
     right: '14px',
     fontSize: '1.2rem',
     color: '#ffffff',

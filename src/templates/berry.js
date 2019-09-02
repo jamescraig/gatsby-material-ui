@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "gatsby";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -13,18 +14,22 @@ const Tastyberry = ({data, classes}) => {
   var berry = data.allSitePage.edges[0].node.context
   return (
     <div>
-      <p>{berry.name}</p>
-      <p>{berry.latin}</p>
-      <p>{berry.wikilink}</p>
+      <Link to="/">Go Back</Link>
+      <h1>{berry.name}</h1>
+      <h2><em>{berry.latin}</em></h2>
+      <a href={berry.wikilink} rel="noopener noreferrer" target="_blank">Wikipedia Article</a>
       <p>{berry.Clade}</p>
       <p>{berry.Order}</p>
       <p>{berry.Family}</p>
       <p>{berry.range}</p>
       <p>{berry.berry}</p>
+      <hr />
+      <h3>What does the {berry.name} look like?</h3>
       <img className={classes.fluidImage} src={berry.berryimg} alt={berry.name} />
+      <h3>What does the {berry.name} flower look like?</h3>
       <img className={classes.fluidImage} src={berry.flowerimg} alt={berry.name} />
+      <h3>The {berry.name} plant</h3>
       <img className={classes.fluidImage} src={berry.wideimg1} alt={berry.name} />
-      <img className={classes.fluidImage} src={berry.image3} alt={berry.name} />
     </div>
   );
 }
