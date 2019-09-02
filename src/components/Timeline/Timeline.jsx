@@ -151,7 +151,7 @@ function Timeline(props) {
         <Button className={classes.salal} component={Link} to={'/salal'}>Salal</Button>
         <Button className={classes.oregongrape} component={Link} to={'/oregon-grape'}>Oregon Grape</Button>
         <Button className={classes.ovalleafblueberry} component={Link} to={'/oval-leaf-blueberry'}>Oval-Leaf Blueberry</Button>
-        <Button className={classes.blackhuckleberry} component={Link} to={'/blac-khuckleberry'}>Black Huckleberry</Button>
+        <Button className={classes.blackhuckleberry} component={Link} to={'/black-huckleberry'}>Black Huckleberry</Button>
         <Button className={classes.bogblueberry} component={Link} to={'/bog-blueberry'}>Bog Blueberry</Button>
         <Button className={classes.evergreenhuckleberry} component={Link} to={'/evergreen-huckleberry'}>Evergreen Huckleberry</Button>
       </Paper>
