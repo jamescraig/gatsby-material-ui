@@ -2,35 +2,39 @@ import React from 'react';
 import { Link } from "gatsby";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Layout from '../components/layout.js'
+import Button from '@material-ui/core/Button';
+import KeyboardBackspace from '@material-ui/icons/KeyboardBackspace';
+import Book from '@material-ui/icons/Book';
 
 const styles = {
   fluidImage: {
     width: 'auto',
     maxWidth: '100%',
   },
+  extWikiLink: {
+    float: 'right',
+  }
 }
 
 const Tastyberry = ({data, classes}) => {
   var berry = data.allSitePage.edges[0].node.context
   return (
-    <div>
-      <Link to="/">Go Back</Link>
-      <h1>{berry.name}</h1>
-      <h2><em>{berry.latin}</em></h2>
-      <a href={berry.wikilink} rel="noopener noreferrer" target="_blank">Wikipedia Article</a>
-      <p>{berry.Clade}</p>
-      <p>{berry.Order}</p>
-      <p>{berry.Family}</p>
+    <Layout>
+      <Button to="/" component={Link}><KeyboardBackspace />&nbsp;Back</Button>
+      <Button className={classes.extWikiLink} href={berry.wikilink} rel="noopener noreferrer" target="_blank"><Book />&nbsp;Wikipedia Article</Button>
+      <h1>{berry.name} <br/><em>{berry.latin}</em></h1>
+      <h3>{berry.Family} &mdash; {berry.Order} &mdash; {berry.Clade}</h3>
       <p>{berry.range}</p>
       <p>{berry.berry}</p>
-      <hr />
-      <h3>What does the {berry.name} look like?</h3>
+      <h2>{berry.name} fruit</h2>
       <img className={classes.fluidImage} src={berry.berryimg} alt={berry.name} />
-      <h3>What does the {berry.name} flower look like?</h3>
+      <h2>{berry.name} flower</h2>
       <img className={classes.fluidImage} src={berry.flowerimg} alt={berry.name} />
-      <h3>The {berry.name} plant</h3>
+      <h2>{berry.name} plant</h2>
       <img className={classes.fluidImage} src={berry.wideimg1} alt={berry.name} />
-    </div>
+      <hr />
+    </Layout>
   );
 }
 

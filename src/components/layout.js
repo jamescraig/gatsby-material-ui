@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Navigator from '../components/Navigation/Drawer';
 import Header from '../components/Navigation/AppBar';
-import Timeline from '../components/Timeline/Timeline';
+import Paper from '@material-ui/core/Paper';
 
 let theme = createMuiTheme({
   typography: {
@@ -149,6 +149,12 @@ const styles = {
       padding: '2em 2em 6em 2em',
     },
   },
+  paperChart: {
+    margin: '0 auto',
+    padding: '1em',
+    maxWidth: '48em',
+    position: 'relative',
+  },
 };
 
 class Tastyberry extends React.Component {
@@ -161,7 +167,7 @@ class Tastyberry extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, children } = this.props;
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -182,7 +188,9 @@ class Tastyberry extends React.Component {
           </nav>
           <div className={classes.appContent}>
             <main className={classes.mainContent}>
-              <Timeline />
+              <Paper className={classes.paperChart} elevation={10}>
+                {children}
+              </Paper>
             </main>
           </div>
           <Header onDrawerToggle={this.handleDrawerToggle} />
@@ -194,6 +202,7 @@ class Tastyberry extends React.Component {
 
 Tastyberry.propTypes = {
   classes: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Tastyberry);

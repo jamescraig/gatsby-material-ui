@@ -8,16 +8,6 @@ import Berrylines from './berry-lines.svg';
 
 // const primary = deepPurple[800];
 const styles = theme => ({
-  modalPaper: {
-    position: 'absolute',
-    top: `50%`,
-    left: `50%`,
-    transform: `translate(-50%, -50%)`,
-    width: '80%',
-    maxWidth: '48em',
-    padding: '1em',
-    outline: 'none',
-  },
   paperChart: {
     margin: '0 auto',
     padding: '1em',
